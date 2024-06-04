@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.tukorea.Fearow.databinding.ActivityMainBinding
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +13,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+        val spinner: Spinner = findViewById(R.id.spinner)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.국적, // arrays.xml 파일에서 정의한 항목들
+            android.R.layout.simple_spinner_item // 스피너에 표시할 레이아웃 스타일
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
