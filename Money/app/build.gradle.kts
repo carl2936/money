@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+
 }
 
 android {
@@ -40,7 +41,8 @@ android {
 }
 
 dependencies {
-
+    implementation ("com.android.support:appcompat-v7:28.0.0")
+    implementation ("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation ("com.google.maps.android:android-maps-utils:2.3.0")
     implementation ("com.google.android.gms:play-services-location:21.2.0")
     implementation ("com.google.android.gms:play-services-maps:18.2.0")
