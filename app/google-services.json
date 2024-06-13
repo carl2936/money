@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "243615032163",
+    "firebase_url": "https://money-92d3e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "money-92d3e",
+    "storage_bucket": "money-92d3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243615032163:android:bc2c1981cf9948ae696956",
+        "android_client_info": {
+          "package_name": "com.tukorea.Fearow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk69zzg2H9rFEOdK10lCudn7BbKXVgsXQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
