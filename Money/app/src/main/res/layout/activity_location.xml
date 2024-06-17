@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="내 동네 이름(동, 읍, 면)으로 검색"
+        android:padding="16dp"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/updateLocationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="주변 위치 찾기"
+        android:background="@drawable/ripple_effect"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
