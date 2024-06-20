@@ -9,7 +9,8 @@
         android:id="@+id/buttonWritePost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Write Post" />
+        android:text="글쓰기"
+        android:background="@drawable/ripple_effect1" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/postRecyclerView"

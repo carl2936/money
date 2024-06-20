@@ -1,5 +1,6 @@
 package com.tukorea.Fearow
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -73,6 +74,10 @@ class HomeFragment : Fragment() {
             } catch (e: NumberFormatException) {
                 Toast.makeText(requireContext(), "Please enter a valid number for price", Toast.LENGTH_SHORT).show()
             }
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, BoardFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         return view

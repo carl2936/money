@@ -8,36 +8,40 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 
-class BoardActivity : AppCompatActivity() {
+class BoardFragment : Fragment() {
     private lateinit var buttonWritePost: Button
     private lateinit var postRecyclerView: RecyclerView
     private lateinit var postAdapter: PostAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_board)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.activity_board, container, false)
 
-        buttonWritePost = findViewById(R.id.buttonWritePost)
-        postRecyclerView = findViewById(R.id.postRecyclerView)
+        buttonWritePost = view.findViewById(R.id.buttonWritePost)
+        postRecyclerView = view.findViewById(R.id.postRecyclerView)
 
         buttonWritePost.setOnClickListener {
-            val intent = Intent(this, HomeFragment::class.java)
-            startActivity(intent)
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HomeFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         // Initialize Firebase
-        FirebaseApp.initializeApp(this)
+        FirebaseApp.initializeApp(requireContext())
         val database = FirebaseDatabase.getInstance()
         val postRef = database.getReference("posts")
 
-        postRecyclerView.layoutManager = LinearLayoutManager(this)
+        postRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         postAdapter = PostAdapter(mutableListOf())
         postRecyclerView.adapter = postAdapter
 
@@ -56,6 +60,8 @@ class BoardActivity : AppCompatActivity() {
                 // Handle error
             }
         })
+
+        return view
     }
 
     inner class PostAdapter(private var posts: MutableList<Post>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
@@ -76,7 +82,7 @@ class BoardActivity : AppCompatActivity() {
                 contentView.text = post.content
                 priceView.text = "${post.price}원"
                 itemView.setOnClickListener {
-                    val intent = Intent(this@BoardActivity, PostDetailActivity::class.java).apply {
+                    val intent = Intent(activity, PostDetailActivity::class.java).apply {
                         putExtra("postId", post.postId)
                         putExtra("userId", post.userId)
                         putExtra("title", post.title)

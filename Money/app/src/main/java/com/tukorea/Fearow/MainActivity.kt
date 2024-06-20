@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> replaceFragment(HomeFragment())
+                R.id.nav_home -> replaceFragment(BoardFragment())
                 R.id.nav_near_me -> replaceFragment(NearMeFragment.newInstance(ArrayList(selectedLocations)))
                 R.id.nav_exchange_rate -> replaceFragment(ExchangeRateFragment())
                 R.id.nav_profile -> replaceFragment(ProfileFragment())
