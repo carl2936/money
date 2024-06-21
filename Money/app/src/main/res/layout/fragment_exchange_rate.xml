@@ -5,13 +5,29 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="환율 계산기"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:paddingBottom="16dp"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="환율 계산기"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="5" />
+
+        <ImageView
+            android:id="@+id/refreshImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_refresh"
+            android:layout_gravity="center_vertical|end"
+            android:layout_weight="0" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,66 +39,141 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonKRW"
+            <!-- 한국 -->
+            <LinearLayout
+                android:id="@+id/viewKRW"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="KRW" />
-            <Button
-                android:id="@+id/buttonUSD"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ripple_effect1"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flag_korea"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/rateKRW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="실시간 환율 로드 중..."
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <!-- 미국 -->
+            <LinearLayout
+                android:id="@+id/viewUSD"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="USD" />
-            <Button
-                android:id="@+id/buttonEUR"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ripple_effect1"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flag_usa"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/rateUSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="실시간 환율 로드 중..."
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <!-- 일본 -->
+            <LinearLayout
+                android:id="@+id/viewJPY"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="EUR" />
-            <Button
-                android:id="@+id/buttonCNY"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ripple_effect1"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flag_japan"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/rateJPY"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="실시간 환율 로드 중..."
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <!-- 중국 -->
+            <LinearLayout
+                android:id="@+id/viewCNY"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="CNY" />
-            <Button
-                android:id="@+id/buttonGBP"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ripple_effect1"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flag_china"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/rateCNY"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="실시간 환율 로드 중..."
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <!-- 베트남 -->
+            <LinearLayout
+                android:id="@+id/viewVND"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="GBP" />
-            <Button
-                android:id="@+id/buttonAUD"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="AUD" />
-            <Button
-                android:id="@+id/buttonTHB"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="THB" />
-            <Button
-                android:id="@+id/buttonVND"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="VND" />
-            <Button
-                android:id="@+id/buttonCAD"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="CAD" />
-            <Button
-                android:id="@+id/buttonHKD"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="HKD" />
-            <Button
-                android:id="@+id/buttonNZD"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="NZD" />
-            <Button
-                android:id="@+id/buttonTWD"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="TWD" />
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ripple_effect1"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flag_vietnam"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/rateVND"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="실시간 환율 로드 중..."
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
